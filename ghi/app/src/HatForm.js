@@ -20,7 +20,7 @@ class CreateHat extends React.Component {
     const response = await fetch(url)
     if (response.ok) {
       const data = await response.json()
-      this.setState({locations: data.locations})
+      this.setState({ locations: data.locations })
     }
   }
 
@@ -33,7 +33,7 @@ class CreateHat extends React.Component {
 
   async handleSubmit(event) {
     event.preventDefault();
-    const data = {...this.state}
+    const data = { ...this.state }
     delete data.locations
     console.log(data)
 
@@ -62,38 +62,40 @@ class CreateHat extends React.Component {
   render() {
     return (
       <div className="row">
-      <div className="offset-3 col-6">
-        <div className="shadow p-4 mt-4">
-        <h1>Create a new hat</h1>
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-floating mb-3">
-            <input type="text" className="form-control" id="style_name" name="style_name" value={this.state.style_name} placeholder="Style Name" onChange={this.handleChange} />
-            <label htmlFor="style_name">Style Name</label>
-          </div>
-          <div className="form-floating mb-3">
-            <input type="text" className="form-control" id="fabric" name="fabric" value={this.state.fabric} placeholder="Fabric" onChange={this.handleChange} />
-            <label htmlFor="fabric">Fabric</label>
-          </div>
-          <div className="form-floating mb-3">
-            <input type="text" className="form-control" id="color" name="color" value={this.state.color} placeholder="Color" onChange={this.handleChange} />
-            <label htmlFor="color">Color</label>
-          </div>
-          <div className="form-floating mb-3">
-            <input type="text" className="form-control" id="picture_url" name="picture_url" value={this.state.picture_url} placeholder="Picture URL" onChange={this.handleChange} />
-            <label htmlFor="picture_url">Picture URL</label>
-          </div>
-          <select onChange={this.handleChange} value={this.state.location} name="location" required id="location" className="form-select">
-            <option value="">Choose a location</option>
-              {this.state.locations.map(location => {
-                return <option key={location.id} value={location.id}>{location.closet_name} </option>
+        <div className="offset-3 col-6">
+          <div className="shadow p-4 mt-4">
+            <h1>Create a new hat</h1>
+            <form onSubmit={this.handleSubmit}>
+              <div className="form-floating mb-3">
+                <input type="text" className="form-control" id="style_name" name="style_name" value={this.state.style_name} placeholder="Style Name" onChange={this.handleChange} />
+                <label htmlFor="style_name">Style Name</label>
+              </div>
+              <div className="form-floating mb-3">
+                <input type="text" className="form-control" id="fabric" name="fabric" value={this.state.fabric} placeholder="Fabric" onChange={this.handleChange} />
+                <label htmlFor="fabric">Fabric</label>
+              </div>
+              <div className="form-floating mb-3">
+                <input type="text" className="form-control" id="color" name="color" value={this.state.color} placeholder="Color" onChange={this.handleChange} />
+                <label htmlFor="color">Color</label>
+              </div>
+              <div className="form-floating mb-3">
+                <input type="text" className="form-control" id="picture_url" name="picture_url" value={this.state.picture_url} placeholder="Picture URL" onChange={this.handleChange} />
+                <label htmlFor="picture_url">Picture URL</label>
+              </div>
+              <div className="mb-3">
+                <select onChange={this.handleChange} value={this.state.location} name="location" required id="location" className="form-select">
+                  <option value="">Choose a location</option>
+                  {this.state.locations.map(location => {
+                    return <option key={location.id} value={location.id}>{location.closet_name} </option>
                   })}
-          </select>
-          <button type="submit" className="btn btn-primary">Submit</button>
-        </form>
+                </select>
+              </div>
+              <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
       </div>
-      </div>
-      </div>
-  
+
     )
   }
 }

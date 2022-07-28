@@ -1,6 +1,6 @@
 import React from 'react';
 
-class CreateShoe extends React.Component {
+class ShoeForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -101,4 +101,4 @@ class CreateShoe extends React.Component {
   }
 }
 
-export default CreateShoe;
+export default ShoeForm;
