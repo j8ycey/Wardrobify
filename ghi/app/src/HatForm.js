@@ -82,12 +82,14 @@ class CreateHat extends React.Component {
             <input type="text" className="form-control" id="picture_url" name="picture_url" value={this.state.picture_url} placeholder="Picture URL" onChange={this.handleChange} />
             <label htmlFor="picture_url">Picture URL</label>
           </div>
+          <div className="mb-3">
           <select onChange={this.handleChange} value={this.state.location} name="location" required id="location" className="form-select">
             <option value="">Choose a location</option>
               {this.state.locations.map(location => {
                 return <option key={location.id} value={location.id}>{location.closet_name} </option>
                   })}
           </select>
+          </div>
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
       </div>
