@@ -12,7 +12,7 @@ class LocationVOEncoder(ModelEncoder):
     model = LocationVO
     properties = ["id", "closet_name", "section_number", "shelf_number"]
 
-class HatListEncoder(ModelEncoder):
+class HatEncoder(ModelEncoder):
     model = Hat
     properties = ["id", "fabric", "style_name", "color", "picture_url", "location"]
     encoders = {
@@ -38,7 +38,7 @@ def list_hats(request):
         hats = Hat.objects.all()
         return JsonResponse (
             {"hats": hats},
-            encoder=HatListEncoder,
+            encoder=HatEncoder,
             safe=False,
             )
     if request.method == "POST":
@@ -58,7 +58,7 @@ def list_hats(request):
         hat = Hat.objects.create(**content)
         return JsonResponse(
             hat,
-            encoder=HatListEncoder,
+            encoder=HatEncoder,
             safe=False,
         )
 
@@ -73,30 +73,28 @@ def show_hats(request, pk):
         hat = Hat.objects.get(id=pk)
         return JsonResponse(
             hat,
-            encoder=HatListEncoder,
+            encoder=HatEncoder,
             safe=False,
         )
-    # if request.method == "PUT":
-    #     content = json.loads(request.body)
-    #     try:
-    #         if "location" in content:
-    #             location_id = content["location"]
-    #             location = LocationVO.objects.get(id=location_id)
-    #             content["location"] = location
-    #         else:
-    #             content["location"] = None
-    #     except LocationVO.DoesNotExist:
-    #         return JsonResponse(
-    #             {"Message": "Invalid location"},
-    #             status=400,
-    #         )
-    #     Hat.objects.filter(id=pk).update(**content)
-    #     hat = Hat.objects.get(id=pk)
-    #     return JsonResponse(
-    #         hat,
-    #         encoder=HatListEncoder,
-    #         safe=False,
-    #     )
+    if request.method == "PUT":
+        content = json.loads(request.body)
+        try:
+            if "location" in content:
+                location_id = content["location"]
+                location = LocationVO.objects.get(id=location_id)
+                content["location"] = location
+        except LocationVO.DoesNotExist:
+            return JsonResponse(
+                {"Message": "Invalid location"},
+                status=400,
+            )
+        Hat.objects.filter(id=pk).update(**content)
+        hat = Hat.objects.get(id=pk)
+        return JsonResponse(
+            hat,
+            encoder=HatEncoder,
+            safe=False,
+        )
     if request.method == "DELETE":
         count, _ = Hat.objects.filter(id=pk).delete()
         return JsonResponse(
