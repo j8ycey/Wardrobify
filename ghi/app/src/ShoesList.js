@@ -1,6 +1,6 @@
 import React from "react";
 
-class ShoeList extends React.Component {
+class ShoesList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {shoes: []}
@@ -61,4 +61,4 @@ class ShoeList extends React.Component {
   }
 }
   
-export default ShoeList
+export default ShoesList
