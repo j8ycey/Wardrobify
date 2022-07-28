@@ -2,10 +2,12 @@
 
 Team:
 
-* Jonathan - Shoes
-* Joyce - Hats
+Jonathan Yoo - Shoes
+Joyce Lum - Hats
 
 ## Design
+The Hat, Shoe, Location, and Bin models are all entities. Hat and Shoe rely on Location and Bin respectively, however Hat and Shoe are each in their own bounded contexts apart from Location and Bin, which are in a bounded context under the main Wardrobe app. This means we have to create congruent value object models of Location and Bin inside of the Hat and Shoe apps respectively. We can do this using a polling method that requests data from the Location and Bin models in the Wardrobe app and writes congruent entries into a LocationVO model in the Hats app and a BinVO model in the Shoes app. After our deliberation, we have found that there are no root aggregates in our SPA, unless you consider the Location and Bin models as root aggregates of their respective VO models.
+
 The Hat, Shoe, Location, and Bin models are all entities. Hat and Shoe rely on Location and Bin respectively, however Hat and Shoe are each in their own bounded contexts apart from Location and Bin, which are in a bounded context under the main Wardrobe app. This means we have to create congruent value object models of Location and Bin inside of the Hat and Shoe apps respectively. We can do this using a polling method that requests data from the Location and Bin models in the Wardrobe app and writes congruent entries into a LocationVO model in the Hats app and a BinVO model in the Shoes app. After our deliberation, we have found that there are no root aggregates in our SPA, unless you consider the Location and Bin models as root aggregates of their respective VO models.
 
 ## Shoes microservice
