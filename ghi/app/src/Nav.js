@@ -20,7 +20,7 @@ function Nav() {
               <NavLink className="nav-link" to="/hats">Hats</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/hats/new">Add new hat</NavLink>
+              <NavLink className="nav-link" to="/hats/new">Add Hat</NavLink>
             </li>
           </ul>
         </div>
