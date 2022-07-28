@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import Nav from './Nav';
 import ShoeList from './ShoeList';
-import CreateShoe from './CreateShoe';
+import CreateShoe from './ShoeForm';
 
 function App() {
   return (

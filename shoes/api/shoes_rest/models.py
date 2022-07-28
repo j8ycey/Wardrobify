@@ -14,8 +14,14 @@ class Shoe(models.Model):
         on_delete=models.CASCADE,
     )
 
+    class Meta:
+        ordering = ['bin', 'manufacturer']
+
 
 class BinVO(models.Model):
     closet_name = models.CharField(max_length=100)
     bin_number = models.PositiveSmallIntegerField()
     bin_size = models.PositiveSmallIntegerField()
+
+    class Meta:
+        ordering = ['closet_name', 'bin_number', 'bin_size']

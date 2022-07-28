@@ -46,7 +46,7 @@ class ShoeList extends React.Component {
             {this.state.shoes.map(shoe => {
               return (
                 <tr key={shoe.id}>
-                  <td><img src={shoe.picture_url} width="300" height="200" /></td>
+                  <td><img src={shoe.picture_url} alt="it's a shoe" width="300" /></td>
                   <td>{shoe.manufacturer}</td>
                   <td>{shoe.name}</td>
                   <td>{shoe.color}</td>
