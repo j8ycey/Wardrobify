@@ -13,6 +13,11 @@ class Hat(models.Model):
 
     def __str__(self):
         return self.style_name
+    
+    class Meta:
+        ordering = ['location', 'style_name']
+        verbose_name = 'Hat'
+        verbose_name_plural = 'Hats'
 
 class LocationVO(models.Model):
     closet_name = models.CharField(max_length=100)
@@ -26,5 +31,7 @@ class LocationVO(models.Model):
         return f"{self.closet_name} - {self.section_number}/{self.shelf_number}"
 
     class Meta:
-        ordering = ("closet_name", "section_number", "shelf_number")
+        ordering = ["closet_name", "section_number", "shelf_number"]
+        verbose_name = "Location"
+        verbose_name_plural = "Locations"
 

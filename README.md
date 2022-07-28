@@ -17,9 +17,10 @@ The Shoes app requires a Shoe model and a BinVO model (which is populated with d
 When creating the hats microservice, we had to create a Hat model and LocationVO model that siphons data from the wardrobe app using the poller.py within the app folder. That poller.py has a function that retrieves data from the location model using an api call / get method to populate the LocationVO model. It will check every minute if there's new data. For the hats microservice, we also did one singular page for the hats list/detail view and created the delete button in the same row as the hat.
 
 
-## Personal Stretch Goals
+## Personal stretch goals
 - Update favicon and title to 'Wardrobify'
 - Turning the list view into dynamic cards
+- Placeholders for cards
 - Add edit button in list view page
 - Ordering list by alphabetical wardrobe name 
 - Redirect from form to hat list after successful creation
