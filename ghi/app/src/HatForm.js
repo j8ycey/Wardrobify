@@ -67,19 +67,19 @@ class CreateHat extends React.Component {
         <h1>Create a new hat</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="form-floating mb-3">
-            <input type="text" className="form-control" id="style_name" name="style_name" value={this.state.style_name} onChange={this.handleChange} />
+            <input type="text" className="form-control" id="style_name" name="style_name" value={this.state.style_name} placeholder="Style Name" onChange={this.handleChange} />
             <label htmlFor="style_name">Style Name</label>
           </div>
           <div className="form-floating mb-3">
-            <input type="text" className="form-control" id="fabric" name="fabric" value={this.state.fabric} onChange={this.handleChange} />
+            <input type="text" className="form-control" id="fabric" name="fabric" value={this.state.fabric} placeholder="Fabric" onChange={this.handleChange} />
             <label htmlFor="fabric">Fabric</label>
           </div>
           <div className="form-floating mb-3">
-            <input type="text" className="form-control" id="color" name="color" value={this.state.color} onChange={this.handleChange} />
+            <input type="text" className="form-control" id="color" name="color" value={this.state.color} placeholder="Color" onChange={this.handleChange} />
             <label htmlFor="color">Color</label>
           </div>
           <div className="form-floating mb-3">
-            <input type="text" className="form-control" id="picture_url" name="picture_url" value={this.state.picture_url} onChange={this.handleChange} />
+            <input type="text" className="form-control" id="picture_url" name="picture_url" value={this.state.picture_url} placeholder="Picture URL" onChange={this.handleChange} />
             <label htmlFor="picture_url">Picture URL</label>
           </div>
           <select onChange={this.handleChange} value={this.state.location} name="location" required id="location" className="form-select">

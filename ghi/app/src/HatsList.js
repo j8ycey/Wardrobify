@@ -52,6 +52,7 @@ class HatsList extends React.Component {
                   <td>{hat.fabric}</td>
                   <td>{hat.color}</td>
                   <td>{hat.location.closet_name} - section {hat.location.section_number} / shelf {hat.location.shelf_number}</td>
+                  <td><button className="btn btn-primary" onClick={() => this.edithat(hat)}>Edit</button></td>
                   <td><button className="btn btn-danger" onClick={() => this.deletehat(hat)}>Delete</button></td>
                 </tr>
               );
